@@ -1,0 +1,29 @@
+{
+	"schemaVersion": 1,
+	"id": "cohesion",
+	"version": "${version}",
+	"name": "Cohesion",
+	"description": "Adds new building blocks that bring consistency to your builds.",
+	"authors": [
+		"Mentil1"
+	],
+	"contact": {
+		"sources": "https://github.com/Mentil1/cohesion-mod"
+	},
+	"license": "All-Rights-Reserved",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"io.github.mentil1.cohesion.Cohesion"
+		],
+		"client": [
+			"io.github.mentil1.cohesion.client.CohesionClient"
+		]
+	},
+	"depends": {
+		"fabricloader": ">=0.19.5",
+		"minecraft": "~26.3",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}
