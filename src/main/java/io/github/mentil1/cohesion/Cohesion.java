@@ -7,6 +7,8 @@ import net.minecraft.resources.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import io.github.mentil1.cohesion.block.ModBlocks;
+
 public class Cohesion implements ModInitializer {
 	public static final String MOD_ID = "cohesion";
 
@@ -15,8 +17,7 @@ public class Cohesion implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		// Runs as soon as Minecraft is ready for mods to load.
-		// Block and item registration will go here.
+		ModBlocks.initialize();
 		LOGGER.info("Cohesion loaded.");
 	}
 
