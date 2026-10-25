@@ -1,0 +1,6 @@
+{
+	"model": {
+		"type": "minecraft:model",
+		"model": "cohesion:block/stone_tiles"
+	}
+}
