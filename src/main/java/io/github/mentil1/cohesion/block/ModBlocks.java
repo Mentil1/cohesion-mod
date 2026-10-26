@@ -10,6 +10,8 @@ import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 
 import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
@@ -21,6 +23,18 @@ public class ModBlocks {
 			"stone_tiles",
 			Block::new,
 			BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS)
+	);
+
+	public static final Block STONE_TILE_STAIRS = register(
+			"stone_tile_stairs",
+			props -> new StairBlock(STONE_TILES.defaultBlockState(), props),
+			BlockBehaviour.Properties.ofFullCopy(STONE_TILES)
+	);
+
+	public static final Block STONE_TILE_SLAB = register(
+			"stone_tile_slab",
+			SlabBlock::new,
+			BlockBehaviour.Properties.ofFullCopy(STONE_TILES)
 	);
 
 	// Registers the block and a matching block item under the same name.
@@ -39,6 +53,8 @@ public class ModBlocks {
 	public static void initialize() {
 		CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.BUILDING_BLOCKS).register(tab -> {
 			tab.accept(STONE_TILES.asItem());
+			tab.accept(STONE_TILE_STAIRS.asItem());
+			tab.accept(STONE_TILE_SLAB.asItem());
 		});
 	}
 }
