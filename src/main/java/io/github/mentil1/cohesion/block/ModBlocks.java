@@ -12,6 +12,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 
 import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
@@ -37,6 +38,12 @@ public class ModBlocks {
 			BlockBehaviour.Properties.ofFullCopy(STONE_TILES)
 	);
 
+	public static final Block STONE_TILE_WALL = register(
+			"stone_tile_wall",
+			WallBlock::new,
+			BlockBehaviour.Properties.ofFullCopy(STONE_TILES).forceSolidOn()
+	);
+
 	// Registers the block and a matching block item under the same name.
 	private static Block register(String name, Function<BlockBehaviour.Properties, Block> factory, BlockBehaviour.Properties properties) {
 		BlockItemId id = BlockItemId.create(Cohesion.id(name), Cohesion.id(name));
@@ -55,6 +62,7 @@ public class ModBlocks {
 			tab.accept(STONE_TILES.asItem());
 			tab.accept(STONE_TILE_STAIRS.asItem());
 			tab.accept(STONE_TILE_SLAB.asItem());
+			tab.accept(STONE_TILE_WALL.asItem());
 		});
 	}
 }
