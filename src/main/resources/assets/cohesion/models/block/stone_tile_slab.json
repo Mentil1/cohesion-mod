@@ -1,0 +1,8 @@
+{
+	"parent": "minecraft:block/slab",
+	"textures": {
+		"bottom": "cohesion:block/stone_tiles",
+		"side": "cohesion:block/stone_tiles",
+		"top": "cohesion:block/stone_tiles"
+	}
+}

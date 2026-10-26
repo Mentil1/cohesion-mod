@@ -1,3 +1,5 @@
 {
-	"block.cohesion.stone_tiles": "Stone Tiles"
+	"block.cohesion.stone_tiles": "Stone Tiles",
+	"block.cohesion.stone_tile_stairs": "Stone Tile Stairs",
+	"block.cohesion.stone_tile_slab": "Stone Tile Slab"
 }
