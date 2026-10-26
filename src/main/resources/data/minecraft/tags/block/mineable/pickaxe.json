@@ -1,4 +1,8 @@
 {
 	"replace": false,
-	"values": ["cohesion:stone_tiles"]
+	"values": [
+		"cohesion:stone_tiles",
+		"cohesion:stone_tile_stairs",
+		"cohesion:stone_tile_slab"
+	]
 }
