@@ -3,6 +3,7 @@
 	"values": [
 		"cohesion:stone_tiles",
 		"cohesion:stone_tile_stairs",
-		"cohesion:stone_tile_slab"
+		"cohesion:stone_tile_slab",
+		"cohesion:stone_tile_wall"
 	]
 }
