@@ -69,6 +69,66 @@ public class ModBlocks {
 			BlockBehaviour.Properties.ofFullCopy(DIORITE_BRICKS).forceSolidOn()
 	);
 
+	public static final Block CRACKED_DIORITE_BRICKS = register(
+			"cracked_diorite_bricks",
+			Block::new,
+			BlockBehaviour.Properties.ofFullCopy(DIORITE_BRICKS)
+	);
+
+	public static final Block MOSSY_DIORITE_BRICKS = register(
+			"mossy_diorite_bricks",
+			Block::new,
+			BlockBehaviour.Properties.ofFullCopy(DIORITE_BRICKS)
+	);
+
+	public static final Block MOSSY_DIORITE_BRICK_STAIRS = register(
+			"mossy_diorite_brick_stairs",
+			props -> new StairBlock(MOSSY_DIORITE_BRICKS.defaultBlockState(), props),
+			BlockBehaviour.Properties.ofFullCopy(MOSSY_DIORITE_BRICKS)
+	);
+
+	public static final Block MOSSY_DIORITE_BRICK_SLAB = register(
+			"mossy_diorite_brick_slab",
+			SlabBlock::new,
+			BlockBehaviour.Properties.ofFullCopy(MOSSY_DIORITE_BRICKS)
+	);
+
+	public static final Block MOSSY_DIORITE_BRICK_WALL = register(
+			"mossy_diorite_brick_wall",
+			WallBlock::new,
+			BlockBehaviour.Properties.ofFullCopy(MOSSY_DIORITE_BRICKS).forceSolidOn()
+	);
+
+	public static final Block CHISELED_DIORITE = register(
+			"chiseled_diorite",
+			Block::new,
+			BlockBehaviour.Properties.ofFullCopy(DIORITE_BRICKS)
+	);
+
+	public static final Block DIORITE_TILES = register(
+			"diorite_tiles",
+			Block::new,
+			BlockBehaviour.Properties.ofFullCopy(DIORITE_BRICKS)
+	);
+
+	public static final Block DIORITE_TILE_STAIRS = register(
+			"diorite_tile_stairs",
+			props -> new StairBlock(DIORITE_TILES.defaultBlockState(), props),
+			BlockBehaviour.Properties.ofFullCopy(DIORITE_TILES)
+	);
+
+	public static final Block DIORITE_TILE_SLAB = register(
+			"diorite_tile_slab",
+			SlabBlock::new,
+			BlockBehaviour.Properties.ofFullCopy(DIORITE_TILES)
+	);
+
+	public static final Block DIORITE_TILE_WALL = register(
+			"diorite_tile_wall",
+			WallBlock::new,
+			BlockBehaviour.Properties.ofFullCopy(DIORITE_TILES).forceSolidOn()
+	);
+
 	// Registers the block and a matching block item under the same name.
 	private static Block register(String name, Function<BlockBehaviour.Properties, Block> factory, BlockBehaviour.Properties properties) {
 		BlockItemId id = BlockItemId.create(Cohesion.id(name), Cohesion.id(name));
@@ -95,9 +155,19 @@ public class ModBlocks {
 			tab.insertAfter(
 					Items.POLISHED_DIORITE_SLAB,
 					DIORITE_BRICKS.asItem(),
+					CRACKED_DIORITE_BRICKS.asItem(),
+					MOSSY_DIORITE_BRICKS.asItem(),
+					CHISELED_DIORITE.asItem(),
 					DIORITE_BRICK_STAIRS.asItem(),
 					DIORITE_BRICK_SLAB.asItem(),
-					DIORITE_BRICK_WALL.asItem()
+					DIORITE_BRICK_WALL.asItem(),
+					MOSSY_DIORITE_BRICK_STAIRS.asItem(),
+					MOSSY_DIORITE_BRICK_SLAB.asItem(),
+					MOSSY_DIORITE_BRICK_WALL.asItem(),
+					DIORITE_TILES.asItem(),
+					DIORITE_TILE_STAIRS.asItem(),
+					DIORITE_TILE_SLAB.asItem(),
+					DIORITE_TILE_WALL.asItem()
 			);
 		});
 	}
