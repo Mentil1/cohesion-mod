@@ -2,9 +2,11 @@
 
 A Fabric mod for Minecraft that adds new building blocks to help your builds look consistent.
 
-## Status
+## Blocks
 
-Early setup. The project framework is in place; the blocks themselves are not added yet.
+- Stone Tiles, with matching stairs, slab and wall
+
+Stone Tiles are crafted from 4 stone bricks, or cut from stone, stone bricks or stone tiles in the stonecutter, the same way as deepslate tiles.
 
 ## Requirements
 
@@ -18,10 +20,13 @@ Early setup. The project framework is in place; the blocks themselves are not ad
 - `src/main/java`: mod code
 - `src/client/java`: client-only code
 - `src/main/resources/assets/cohesion/`: textures, models and language files
+- `src/main/resources/data/cohesion/`: recipes, loot tables and recipe unlocks
 
-## Building
+## Building and testing
 
-Run `./gradlew build` (`gradlew.bat build` on Windows). The Gradle wrapper files (`gradlew`, `gradlew.bat` and `gradle/wrapper/gradle-wrapper.jar`) still need to be added to the repo.
+Run `./gradlew build` (`gradlew.bat build` on Windows) to build the mod. The finished `.jar` ends up in `build/libs/`.
+
+To try it in the game, run `./gradlew runClient`, or use the Minecraft Client run configuration in IntelliJ.
 
 ## License
 
