@@ -4,9 +4,12 @@ A Fabric mod for Minecraft that adds new building blocks to help your builds loo
 
 ## Blocks
 
-- Stone Tiles, with matching stairs, slab and wall
+Every block comes with matching stairs, a slab and a wall.
 
-Stone Tiles are crafted from 4 stone bricks, or cut from stone, stone bricks or stone tiles in the stonecutter, the same way as deepslate tiles.
+- **Stone Tiles**: crafted from 4 stone bricks, the same way as deepslate tiles. In the stonecutter, stone, stone bricks and stone tiles all work.
+- **Diorite Bricks**: crafted from 4 diorite, the same way as stone bricks. In the stonecutter, diorite and diorite bricks both work.
+
+All recipes unlock in the recipe book when you pick up the right item. Diorite Bricks sit next to the diorite blocks in the creative inventory, and Stone Tiles are at the end of the Building Blocks tab.
 
 ## Requirements
 
