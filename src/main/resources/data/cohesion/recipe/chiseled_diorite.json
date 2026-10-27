@@ -1,0 +1,14 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"category": "building",
+	"key": {
+		"#": "cohesion:diorite_brick_slab"
+	},
+	"pattern": [
+		"#",
+		"#"
+	],
+	"result": {
+		"id": "cohesion:chiseled_diorite"
+	}
+}

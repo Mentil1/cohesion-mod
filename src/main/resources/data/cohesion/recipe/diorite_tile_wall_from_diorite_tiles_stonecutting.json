@@ -1,0 +1,7 @@
+{
+	"type": "minecraft:stonecutting",
+	"ingredient": "cohesion:diorite_tiles",
+	"result": {
+		"id": "cohesion:diorite_tile_wall"
+	}
+}
