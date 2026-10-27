@@ -2,5 +2,9 @@
 	"block.cohesion.stone_tiles": "Stone Tiles",
 	"block.cohesion.stone_tile_stairs": "Stone Tile Stairs",
 	"block.cohesion.stone_tile_slab": "Stone Tile Slab",
-	"block.cohesion.stone_tile_wall": "Stone Tile Wall"
+	"block.cohesion.stone_tile_wall": "Stone Tile Wall",
+	"block.cohesion.diorite_bricks": "Diorite Bricks",
+	"block.cohesion.diorite_brick_stairs": "Diorite Brick Stairs",
+	"block.cohesion.diorite_brick_slab": "Diorite Brick Slab",
+	"block.cohesion.diorite_brick_wall": "Diorite Brick Wall"
 }
