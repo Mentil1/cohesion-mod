@@ -1,5 +1,6 @@
 {
 	"values": [
-		"cohesion:stone_tile_slab"
+		"cohesion:stone_tile_slab",
+		"cohesion:diorite_brick_slab"
 	]
 }

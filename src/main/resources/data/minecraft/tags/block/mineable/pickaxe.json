@@ -4,6 +4,10 @@
 		"cohesion:stone_tiles",
 		"cohesion:stone_tile_stairs",
 		"cohesion:stone_tile_slab",
-		"cohesion:stone_tile_wall"
+		"cohesion:stone_tile_wall",
+		"cohesion:diorite_bricks",
+		"cohesion:diorite_brick_stairs",
+		"cohesion:diorite_brick_slab",
+		"cohesion:diorite_brick_wall"
 	]
 }
