@@ -4,12 +4,16 @@ A Fabric mod for Minecraft that adds new building blocks to help your builds loo
 
 ## Blocks
 
-Every block comes with matching stairs, a slab and a wall.
+Stone Tiles, Diorite Bricks, Mossy Diorite Bricks and Diorite Tiles each come with matching stairs, a slab and a wall. Cracked Diorite Bricks and Chiseled Diorite are single blocks.
 
 - **Stone Tiles**: crafted from 4 stone bricks, the same way as deepslate tiles. In the stonecutter, stone, stone bricks and stone tiles all work.
 - **Diorite Bricks**: crafted from 4 diorite, the same way as stone bricks. In the stonecutter, diorite and diorite bricks both work.
+- **Cracked Diorite Bricks**: smelt diorite bricks in a furnace.
+- **Mossy Diorite Bricks**: craft diorite bricks with a moss block or a vine. In the stonecutter, mossy diorite bricks give the stairs, slab and wall.
+- **Chiseled Diorite**: stack two diorite brick slabs. In the stonecutter, diorite and diorite bricks both work.
+- **Diorite Tiles**: crafted from 4 diorite bricks, the same way as deepslate tiles. In the stonecutter, diorite, diorite bricks and diorite tiles all work.
 
-All recipes unlock in the recipe book when you pick up the right item. Diorite Bricks sit next to the diorite blocks in the creative inventory, and Stone Tiles are at the end of the Building Blocks tab.
+All recipes unlock in the recipe book when you pick up the right item. The diorite blocks sit next to the vanilla diorite in the creative inventory, and Stone Tiles are at the end of the Building Blocks tab.
 
 ## Requirements
 
