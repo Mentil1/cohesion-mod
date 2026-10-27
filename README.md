@@ -28,6 +28,10 @@ Run `./gradlew build` (`gradlew.bat build` on Windows) to build the mod. The fin
 
 To try it in the game, run `./gradlew runClient`, or use the Minecraft Client run configuration in IntelliJ.
 
+## Recipe changes
+
+Stairs are cheaper to craft. Every stairs crafting recipe, vanilla ones and Cohesion's own, now takes just 3 blocks (top left, middle left and middle of the crafting grid) and makes 4 stairs. Stonecutter recipes are unchanged.
+
 ## License
 
 Not decided yet. All rights reserved for now.
