@@ -5,9 +5,8 @@
 		"#": "cohesion:stone_tiles"
 	},
 	"pattern": [
-		"#  ",
-		"## ",
-		"###"
+		"# ",
+		"##"
 	],
 	"result": {
 		"count": 4,

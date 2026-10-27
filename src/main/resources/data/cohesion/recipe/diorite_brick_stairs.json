@@ -5,9 +5,8 @@
 		"#": "cohesion:diorite_bricks"
 	},
 	"pattern": [
-		"#  ",
-		"## ",
-		"###"
+		"# ",
+		"##"
 	],
 	"result": {
 		"count": 4,
