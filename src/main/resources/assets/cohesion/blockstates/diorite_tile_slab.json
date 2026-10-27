@@ -1,0 +1,13 @@
+{
+	"variants": {
+		"type=bottom": {
+			"model": "cohesion:block/diorite_tile_slab"
+		},
+		"type=double": {
+			"model": "cohesion:block/diorite_tiles"
+		},
+		"type=top": {
+			"model": "cohesion:block/diorite_tile_slab_top"
+		}
+	}
+}

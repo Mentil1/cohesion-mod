@@ -6,5 +6,15 @@
 	"block.cohesion.diorite_bricks": "Diorite Bricks",
 	"block.cohesion.diorite_brick_stairs": "Diorite Brick Stairs",
 	"block.cohesion.diorite_brick_slab": "Diorite Brick Slab",
-	"block.cohesion.diorite_brick_wall": "Diorite Brick Wall"
+	"block.cohesion.diorite_brick_wall": "Diorite Brick Wall",
+	"block.cohesion.cracked_diorite_bricks": "Cracked Diorite Bricks",
+	"block.cohesion.mossy_diorite_bricks": "Mossy Diorite Bricks",
+	"block.cohesion.mossy_diorite_brick_stairs": "Mossy Diorite Brick Stairs",
+	"block.cohesion.mossy_diorite_brick_slab": "Mossy Diorite Brick Slab",
+	"block.cohesion.mossy_diorite_brick_wall": "Mossy Diorite Brick Wall",
+	"block.cohesion.chiseled_diorite": "Chiseled Diorite",
+	"block.cohesion.diorite_tiles": "Diorite Tiles",
+	"block.cohesion.diorite_tile_stairs": "Diorite Tile Stairs",
+	"block.cohesion.diorite_tile_slab": "Diorite Tile Slab",
+	"block.cohesion.diorite_tile_wall": "Diorite Tile Wall"
 }

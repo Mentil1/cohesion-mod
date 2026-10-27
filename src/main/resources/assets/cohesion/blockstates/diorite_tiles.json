@@ -1,0 +1,7 @@
+{
+	"variants": {
+		"": {
+			"model": "cohesion:block/diorite_tiles"
+		}
+	}
+}
