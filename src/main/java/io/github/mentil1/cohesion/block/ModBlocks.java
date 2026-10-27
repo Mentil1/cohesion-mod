@@ -8,6 +8,7 @@ import net.minecraft.references.BlockItemId;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SlabBlock;
@@ -44,6 +45,30 @@ public class ModBlocks {
 			BlockBehaviour.Properties.ofFullCopy(STONE_TILES).forceSolidOn()
 	);
 
+	public static final Block DIORITE_BRICKS = register(
+			"diorite_bricks",
+			Block::new,
+			BlockBehaviour.Properties.ofFullCopy(Blocks.DIORITE)
+	);
+
+	public static final Block DIORITE_BRICK_STAIRS = register(
+			"diorite_brick_stairs",
+			props -> new StairBlock(DIORITE_BRICKS.defaultBlockState(), props),
+			BlockBehaviour.Properties.ofFullCopy(DIORITE_BRICKS)
+	);
+
+	public static final Block DIORITE_BRICK_SLAB = register(
+			"diorite_brick_slab",
+			SlabBlock::new,
+			BlockBehaviour.Properties.ofFullCopy(DIORITE_BRICKS)
+	);
+
+	public static final Block DIORITE_BRICK_WALL = register(
+			"diorite_brick_wall",
+			WallBlock::new,
+			BlockBehaviour.Properties.ofFullCopy(DIORITE_BRICKS).forceSolidOn()
+	);
+
 	// Registers the block and a matching block item under the same name.
 	private static Block register(String name, Function<BlockBehaviour.Properties, Block> factory, BlockBehaviour.Properties properties) {
 		BlockItemId id = BlockItemId.create(Cohesion.id(name), Cohesion.id(name));
@@ -63,6 +88,17 @@ public class ModBlocks {
 			tab.accept(STONE_TILE_STAIRS.asItem());
 			tab.accept(STONE_TILE_SLAB.asItem());
 			tab.accept(STONE_TILE_WALL.asItem());
+		});
+
+		// Sits right after the vanilla diorite group.
+		CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.BUILDING_BLOCKS).register(tab -> {
+			tab.insertAfter(
+					Items.POLISHED_DIORITE_SLAB,
+					DIORITE_BRICKS.asItem(),
+					DIORITE_BRICK_STAIRS.asItem(),
+					DIORITE_BRICK_SLAB.asItem(),
+					DIORITE_BRICK_WALL.asItem()
+			);
 		});
 	}
 }
