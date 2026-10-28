@@ -1,6 +1,6 @@
 # Cohesion
 
-A Fabric mod for Minecraft that adds new building blocks to help your builds look consistent.
+A Fabric mod for Minecraft that adds new building blocks to improve consistency in blocksets.
 
 ## Blocks
 
