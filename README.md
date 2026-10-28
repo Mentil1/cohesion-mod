@@ -15,6 +15,10 @@ Stone Tiles, Diorite Bricks, Mossy Diorite Bricks and Diorite Tiles each come wi
 
 All recipes unlock in the recipe book when you pick up the right item. The diorite blocks sit next to the vanilla diorite in the creative inventory, and Stone Tiles are at the end of the Building Blocks tab.
 
+## Recipe changes
+
+Stairs are cheaper to craft. Every stairs crafting recipe, vanilla ones and Cohesion's own, now takes just 3 blocks (top left, middle left and middle of the crafting grid) and makes 4 stairs. Stonecutter recipes are unchanged.
+
 ## Requirements
 
 - Minecraft 26.3
@@ -34,10 +38,6 @@ All recipes unlock in the recipe book when you pick up the right item. The diori
 Run `./gradlew build` (`gradlew.bat build` on Windows) to build the mod. The finished `.jar` ends up in `build/libs/`.
 
 To try it in the game, run `./gradlew runClient`, or use the Minecraft Client run configuration in IntelliJ.
-
-## Recipe changes
-
-Stairs are cheaper to craft. Every stairs crafting recipe, vanilla ones and Cohesion's own, now takes just 3 blocks (top left, middle left and middle of the crafting grid) and makes 4 stairs. Stonecutter recipes are unchanged.
 
 ## License
 
