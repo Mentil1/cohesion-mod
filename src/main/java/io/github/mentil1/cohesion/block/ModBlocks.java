@@ -1,5 +1,6 @@
 package io.github.mentil1.cohesion.block;
 
+import java.util.List;
 import java.util.function.Function;
 
 import net.minecraft.core.Registry;
@@ -129,6 +130,17 @@ public class ModBlocks {
 			BlockBehaviour.Properties.ofFullCopy(DIORITE_TILES).forceSolidOn()
 	);
 
+	public static final List<Block> STONE_TILE_SET = List.of(
+			STONE_TILES, STONE_TILE_STAIRS, STONE_TILE_SLAB, STONE_TILE_WALL
+	);
+
+	public static final List<Block> DIORITE_SET = List.of(
+			DIORITE_BRICKS, CRACKED_DIORITE_BRICKS, MOSSY_DIORITE_BRICKS, CHISELED_DIORITE,
+			DIORITE_BRICK_STAIRS, DIORITE_BRICK_SLAB, DIORITE_BRICK_WALL,
+			MOSSY_DIORITE_BRICK_STAIRS, MOSSY_DIORITE_BRICK_SLAB, MOSSY_DIORITE_BRICK_WALL,
+			DIORITE_TILES, DIORITE_TILE_STAIRS, DIORITE_TILE_SLAB, DIORITE_TILE_WALL
+	);
+
 	// Registers the block and a matching block item under the same name.
 	private static Block register(String name, Function<BlockBehaviour.Properties, Block> factory, BlockBehaviour.Properties properties) {
 		BlockItemId id = BlockItemId.create(Cohesion.id(name), Cohesion.id(name));
@@ -144,31 +156,14 @@ public class ModBlocks {
 
 	public static void initialize() {
 		CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.BUILDING_BLOCKS).register(tab -> {
-			tab.accept(STONE_TILES.asItem());
-			tab.accept(STONE_TILE_STAIRS.asItem());
-			tab.accept(STONE_TILE_SLAB.asItem());
-			tab.accept(STONE_TILE_WALL.asItem());
+			// Stone Tiles sit right after the vanilla stone brick group.
+			tab.insertAfter(Items.MOSSY_STONE_BRICK_WALL, items(STONE_TILE_SET));
+			// The diorite blocks sit right after the vanilla diorite group.
+			tab.insertAfter(Items.POLISHED_DIORITE_SLAB, items(DIORITE_SET));
 		});
+	}
 
-		// Sits right after the vanilla diorite group.
-		CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.BUILDING_BLOCKS).register(tab -> {
-			tab.insertAfter(
-					Items.POLISHED_DIORITE_SLAB,
-					DIORITE_BRICKS.asItem(),
-					CRACKED_DIORITE_BRICKS.asItem(),
-					MOSSY_DIORITE_BRICKS.asItem(),
-					CHISELED_DIORITE.asItem(),
-					DIORITE_BRICK_STAIRS.asItem(),
-					DIORITE_BRICK_SLAB.asItem(),
-					DIORITE_BRICK_WALL.asItem(),
-					MOSSY_DIORITE_BRICK_STAIRS.asItem(),
-					MOSSY_DIORITE_BRICK_SLAB.asItem(),
-					MOSSY_DIORITE_BRICK_WALL.asItem(),
-					DIORITE_TILES.asItem(),
-					DIORITE_TILE_STAIRS.asItem(),
-					DIORITE_TILE_SLAB.asItem(),
-					DIORITE_TILE_WALL.asItem()
-			);
-		});
+	private static Item[] items(List<Block> blocks) {
+		return blocks.stream().map(Block::asItem).toArray(Item[]::new);
 	}
 }
