@@ -39,6 +39,10 @@ Run `./gradlew build` (`gradlew.bat build` on Windows) to build the mod. The fin
 
 To try it in the game, run `./gradlew runClient`, or use the Minecraft Client run configuration in IntelliJ.
 
+## Resource check
+
+`python3 scripts/check_resources.py` checks that every block has its model, texture, recipe, recipe unlock, loot table and tags, and that nothing points at a missing file. It runs automatically before every build on GitHub.
+
 ## License
 
 Not decided yet. All rights reserved for now.
