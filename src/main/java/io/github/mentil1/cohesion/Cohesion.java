@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import io.github.mentil1.cohesion.block.ModBlocks;
+import io.github.mentil1.cohesion.item.ModItemGroups;
 
 public class Cohesion implements ModInitializer {
 	public static final String MOD_ID = "cohesion";
@@ -18,6 +19,7 @@ public class Cohesion implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		ModBlocks.initialize();
+		ModItemGroups.initialize();
 		LOGGER.info("Cohesion loaded.");
 	}
 

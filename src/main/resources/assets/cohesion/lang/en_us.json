@@ -16,5 +16,6 @@
 	"block.cohesion.diorite_tiles": "Diorite Tiles",
 	"block.cohesion.diorite_tile_stairs": "Diorite Tile Stairs",
 	"block.cohesion.diorite_tile_slab": "Diorite Tile Slab",
-	"block.cohesion.diorite_tile_wall": "Diorite Tile Wall"
+	"block.cohesion.diorite_tile_wall": "Diorite Tile Wall",
+	"creativeTab.cohesion": "Cohesion"
 }
