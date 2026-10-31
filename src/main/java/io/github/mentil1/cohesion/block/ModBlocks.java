@@ -1,7 +1,10 @@
 package io.github.mentil1.cohesion.block;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Function;
+import java.util.stream.Stream;
 
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -22,6 +25,8 @@ import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import io.github.mentil1.cohesion.Cohesion;
 
 public class ModBlocks {
+	private static final Map<Block, BlockItemId> IDS = new HashMap<>();
+
 	public static final Block STONE_TILES = register(
 			"stone_tiles",
 			Block::new,
@@ -141,11 +146,18 @@ public class ModBlocks {
 			DIORITE_TILES, DIORITE_TILE_STAIRS, DIORITE_TILE_SLAB, DIORITE_TILE_WALL
 	);
 
+	public static final List<Block> ALL = Stream.of(STONE_TILE_SET, DIORITE_SET).flatMap(List::stream).toList();
+
+	public static BlockItemId idOf(Block block) {
+		return IDS.get(block);
+	}
+
 	// Registers the block and a matching block item under the same name.
 	private static Block register(String name, Function<BlockBehaviour.Properties, Block> factory, BlockBehaviour.Properties properties) {
 		BlockItemId id = BlockItemId.create(Cohesion.id(name), Cohesion.id(name));
 
 		Block block = factory.apply(properties.setId(id.block()));
+		IDS.put(block, id);
 		Registry.register(BuiltInRegistries.BLOCK, id.block(), block);
 
 		BlockItem item = new BlockItem(block, new Item.Properties().useBlockDescriptionPrefix().setId(id.item()));
