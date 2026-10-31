@@ -3,16 +3,18 @@ package io.github.mentil1.cohesion.datagen;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
+import net.minecraft.advancements.Advancement;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.RecipeCategory;
-import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
 import net.minecraft.data.recipes.SingleItemRecipeBuilder;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.CookingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.ItemLike;
@@ -31,8 +33,8 @@ public class CohesionRecipeProvider extends FabricRecipeProvider {
 	}
 
 	@Override
-	protected RecipeProvider createRecipeProvider(HolderLookup.Provider registries, RecipeOutput output) {
-		return new RecipeProvider(registries, output) {
+	protected RecipeProvider createRecipeProvider(HolderLookup.Provider registries, BootstrapContext<Recipe<?>> recipes, BootstrapContext<Advancement> advancements) {
+		return new RecipeProvider(recipes, advancements) {
 			@Override
 			public void buildRecipes() {
 				// Stone Tiles: 4 stone bricks, or the stonecutter from stone, stone bricks and tiles
@@ -59,14 +61,14 @@ public class CohesionRecipeProvider extends FabricRecipeProvider {
 							.requires(moss)
 							.group("mossy_diorite_bricks")
 							.unlockedBy(getHasName(moss), has(moss))
-							.save(output, key("mossy_diorite_bricks_from_" + path(moss)));
+							.save(this.output, key("mossy_diorite_bricks_from_" + path(moss)));
 				}
 				stairsSlabWall(ModBlocks.MOSSY_DIORITE_BRICKS, ModBlocks.MOSSY_DIORITE_BRICK_STAIRS, ModBlocks.MOSSY_DIORITE_BRICK_SLAB, ModBlocks.MOSSY_DIORITE_BRICK_WALL);
 
 				// Cracked Diorite Bricks: smelt diorite bricks, like cracked stone bricks
-				SimpleCookingRecipeBuilder.smelting(Ingredient.of(ModBlocks.DIORITE_BRICKS), RecipeCategory.BUILDING_BLOCKS, ModBlocks.CRACKED_DIORITE_BRICKS, 0.1F, 200)
+				SimpleCookingRecipeBuilder.smelting(Ingredient.of(ModBlocks.DIORITE_BRICKS), RecipeCategory.BUILDING_BLOCKS, CookingBookCategory.BLOCKS, ModBlocks.CRACKED_DIORITE_BRICKS, 0.1F, 200)
 						.unlockedBy(getHasName(ModBlocks.DIORITE_BRICKS), has(ModBlocks.DIORITE_BRICKS))
-						.save(output, key("cracked_diorite_bricks"));
+						.save(this.output, key("cracked_diorite_bricks"));
 
 				// Chiseled Diorite: two diorite brick slabs, or the stonecutter
 				craft(ModBlocks.CHISELED_DIORITE, 1, ModBlocks.DIORITE_BRICK_SLAB, ModBlocks.DIORITE_BRICKS, "#", "#");
@@ -96,13 +98,13 @@ public class CohesionRecipeProvider extends FabricRecipeProvider {
 				for (String row : rows) {
 					recipe.pattern(row);
 				}
-				recipe.unlockedBy(getHasName(unlock), has(unlock)).save(output, key(path(result)));
+				recipe.unlockedBy(getHasName(unlock), has(unlock)).save(this.output, key(path(result)));
 			}
 
 			private void cut(ItemLike source, Block result, int count) {
 				SingleItemRecipeBuilder.stonecutting(Ingredient.of(source), category(result), result, count)
 						.unlockedBy(getHasName(source), has(source))
-						.save(output, key(path(result) + "_from_" + path(source) + "_stonecutting"));
+						.save(this.output, key(path(result) + "_from_" + path(source) + "_stonecutting"));
 			}
 
 			// walls count as decorations, everything else as building blocks
