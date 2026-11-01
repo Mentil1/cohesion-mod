@@ -1,14 +1,10 @@
-# Runs Fabric data generation and checks it against the hand written files.
-# Put [finalize] in a commit message on this branch to swap the hand written files for the generated ones.
+# Makes sure the files in src/main/generated are exactly what datagen produces.
 
 name: datagen
 on:
-  workflow_dispatch:
+  pull_request:
   push:
-    branches: [datagen]
-
-permissions:
-  contents: write
+    branches: [main, datagen]
 
 jobs:
   datagen:
@@ -25,21 +21,11 @@ jobs:
         run: chmod +x ./gradlew
       - name: run datagen
         run: ./gradlew runDatagen
-      - name: compare generated files with the hand written ones
-        run: python3 scripts/compare_generated.py
-      - name: upload generated files
-        if: always()
-        uses: actions/upload-artifact@v7
-        with:
-          name: generated
-          path: src/main/generated/
-          if-no-files-found: ignore
-      - name: swap hand written files for generated ones
-        if: contains(github.event.head_commit.message, '[finalize]')
+      - name: check the generated files are up to date
         run: |
-          python3 scripts/compare_generated.py --remove-handwritten
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A src/main
-          git commit -m "switch to generated resources [skip ci]"
-          git push
+          git add -A src/main/generated
+          if ! git diff --cached --quiet -- src/main/generated; then
+            echo "The files in src/main/generated are out of date. Run ./gradlew runDatagen and commit the result."
+            git diff --cached --stat -- src/main/generated
+            exit 1
+          fi
