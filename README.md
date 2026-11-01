@@ -28,10 +28,22 @@ Stairs are cheaper to craft. Every stairs crafting recipe, vanilla ones and Cohe
 
 ## Project layout
 
-- `src/main/java`: mod code
-- `src/client/java`: client-only code
-- `src/main/resources/assets/cohesion/`: textures, models and language files
-- `src/main/resources/data/cohesion/`: recipes, loot tables and recipe unlocks
+- `src/main/java`: mod code, including the block list in `ModBlocks`
+- `src/client/java`: client-only code, including the datagen classes in `datagen/`
+- `src/main/resources/assets/cohesion/textures/`: the block textures, the only files drawn by hand
+- `src/main/generated/`: models, recipes, recipe unlocks, loot tables, tags and names written by datagen. Do not edit these by hand.
+- `src/main/resources/data/minecraft/recipe/`: the vanilla stairs recipes with the 3 block shape
+
+## Data generation
+
+Models, recipes, recipe unlocks, loot tables, tags and names are written by Fabric datagen. To add a block:
+
+1. Register it in `ModBlocks` and add it to its set list.
+2. Describe it in the providers in `src/client/java/io/github/mentil1/cohesion/datagen/`.
+3. Add its texture to `assets/cohesion/textures/block/`.
+4. Run `./gradlew runDatagen` and commit the changes in `src/main/generated`.
+
+GitHub checks that the committed files match what datagen makes, and that everything lines up (see below).
 
 ## Building and testing
 
