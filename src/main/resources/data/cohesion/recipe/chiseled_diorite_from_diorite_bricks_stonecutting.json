@@ -1,7 +1,0 @@
-{
-	"type": "minecraft:stonecutting",
-	"ingredient": "cohesion:diorite_bricks",
-	"result": {
-		"id": "cohesion:chiseled_diorite"
-	}
-}
