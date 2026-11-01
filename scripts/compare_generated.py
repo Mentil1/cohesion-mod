@@ -29,6 +29,8 @@ def norm(obj):
         for k, v in obj.items():
             if k == 'replace' and v is False:
                 continue
+            if k == 'random_sequence':
+                continue
             out[k] = norm(v)
         if 'id' in out and out.get('count') == 1:
             del out['count']
