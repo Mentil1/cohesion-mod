@@ -18,6 +18,9 @@
 		],
 		"client": [
 			"io.github.mentil1.cohesion.client.CohesionClient"
+		],
+		"fabric-datagen": [
+			"io.github.mentil1.cohesion.datagen.CohesionDataGenerator"
 		]
 	},
 	"depends": {

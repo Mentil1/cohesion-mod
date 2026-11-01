@@ -1,7 +1,0 @@
-{
-	"type": "minecraft:stonecutting",
-	"ingredient": "cohesion:stone_tiles",
-	"result": {
-		"id": "cohesion:stone_tile_stairs"
-	}
-}

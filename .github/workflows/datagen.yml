@@ -1,0 +1,31 @@
+# Makes sure the files in src/main/generated are exactly what datagen produces.
+
+name: datagen
+on:
+  pull_request:
+  push:
+    branches: [main, datagen]
+
+jobs:
+  datagen:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v6
+      - name: setup jdk
+        uses: actions/setup-java@v5
+        with:
+          java-version: '25'
+          distribution: 'microsoft'
+      - name: make gradle wrapper executable
+        run: chmod +x ./gradlew
+      - name: run datagen
+        run: ./gradlew runDatagen
+      - name: check the generated files are up to date
+        run: |
+          git add -A src/main/generated
+          if ! git diff --cached --quiet -- src/main/generated; then
+            echo "The files in src/main/generated are out of date. Run ./gradlew runDatagen and commit the result."
+            git diff --cached --stat -- src/main/generated
+            exit 1
+          fi

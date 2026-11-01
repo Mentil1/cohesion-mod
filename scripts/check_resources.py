@@ -4,15 +4,24 @@
 Run it from anywhere:  python3 scripts/check_resources.py
 It exits with 1 when something is wrong, so the GitHub build fails early.
 """
+import atexit
 import json
 import re
+import shutil
 import struct
 import sys
+import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / 'src'
-RES = SRC / 'main' / 'resources'
+GENERATED = SRC / 'main' / 'generated'
+# hand written files and datagen files are checked together, the way the game sees them
+RES = Path(tempfile.mkdtemp(prefix='cohesion_resources_'))
+atexit.register(shutil.rmtree, RES, ignore_errors=True)
+shutil.copytree(SRC / 'main' / 'resources', RES, dirs_exist_ok=True)
+if GENERATED.exists():
+    shutil.copytree(GENERATED, RES, dirs_exist_ok=True, ignore=shutil.ignore_patterns('.cache'))
 ASSETS = RES / 'assets' / 'cohesion'
 DATA = RES / 'data'
 COH = DATA / 'cohesion'
@@ -35,7 +44,10 @@ def warn(msg):
 
 
 def rel(path):
-    return path.relative_to(ROOT).as_posix()
+    try:
+        return path.relative_to(ROOT).as_posix()
+    except ValueError:
+        return 'resources/' + path.relative_to(RES).as_posix()
 
 
 def load_json(path):
