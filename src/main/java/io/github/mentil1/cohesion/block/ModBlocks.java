@@ -10,17 +10,13 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.references.BlockItemId;
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-
-import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 
 import io.github.mentil1.cohesion.Cohesion;
 
@@ -166,16 +162,7 @@ public class ModBlocks {
 		return block;
 	}
 
+	// Calling this loads the class, which registers all the blocks.
 	public static void initialize() {
-		CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.BUILDING_BLOCKS).register(tab -> {
-			// Stone Tiles sit right after the vanilla stone brick group.
-			tab.insertAfter(Items.MOSSY_STONE_BRICK_WALL, items(STONE_TILE_SET));
-			// The diorite blocks sit right after the vanilla diorite group.
-			tab.insertAfter(Items.POLISHED_DIORITE_SLAB, items(DIORITE_SET));
-		});
-	}
-
-	private static Item[] items(List<Block> blocks) {
-		return blocks.stream().map(Block::asItem).toArray(Item[]::new);
 	}
 }
