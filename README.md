@@ -1,59 +1,66 @@
 # Cohesion
 
+[![build](https://github.com/Mentil1/cohesion-mod/actions/workflows/build.yml/badge.svg)](https://github.com/Mentil1/cohesion-mod/actions/workflows/build.yml)
+
 A Fabric mod for Minecraft that adds new building blocks to improve consistency in blocksets.
 
 ## Blocks
 
-Stone Tiles, Diorite Bricks, Mossy Diorite Bricks and Diorite Tiles each come with matching stairs, a slab and a wall. Cracked Diorite Bricks and Chiseled Diorite are single blocks.
+| Set | Blocks | How you get it |
+|---|---|---|
+| Stone Tiles | tiles, stairs, slab, wall | 4 stone bricks, like deepslate tiles. Stonecutter from stone, stone bricks or stone tiles. |
+| Diorite Bricks | bricks, stairs, slab, wall | 4 diorite, like stone bricks. Stonecutter from diorite or diorite bricks. |
+| Cracked Diorite Bricks | one block | Smelt diorite bricks in a furnace. |
+| Mossy Diorite Bricks | bricks, stairs, slab, wall | Diorite bricks with a moss block or a vine. Stonecutter from mossy diorite bricks. |
+| Chiseled Diorite | one block | Stack 2 diorite brick slabs. Stonecutter from diorite or diorite bricks. |
+| Diorite Tiles | tiles, stairs, slab, wall | 4 diorite bricks, like deepslate tiles. Stonecutter from diorite, diorite bricks or diorite tiles. |
 
-- **Stone Tiles**: crafted from 4 stone bricks, the same way as deepslate tiles. In the stonecutter, stone, stone bricks and stone tiles all work.
-- **Diorite Bricks**: crafted from 4 diorite, the same way as stone bricks. In the stonecutter, diorite and diorite bricks both work.
-- **Cracked Diorite Bricks**: smelt diorite bricks in a furnace.
-- **Mossy Diorite Bricks**: craft diorite bricks with a moss block or a vine. In the stonecutter, mossy diorite bricks give the stairs, slab and wall.
-- **Chiseled Diorite**: stack two diorite brick slabs. In the stonecutter, diorite and diorite bricks both work.
-- **Diorite Tiles**: crafted from 4 diorite bricks, the same way as deepslate tiles. In the stonecutter, diorite, diorite bricks and diorite tiles all work.
-
-All recipes unlock in the recipe book when you pick up the right item. The diorite blocks sit next to the vanilla diorite in the creative inventory, and Stone Tiles are at the end of the Building Blocks tab.
+All recipes unlock in the recipe book when you pick up the right item. Every block is in the **Cohesion** creative tab and also sits next to its vanilla relatives in the Building Blocks tab: Stone Tiles right after the Mossy Stone Brick Wall, and the diorite blocks right after the Polished Diorite Slab.
 
 ## Recipe changes
 
-Stairs are cheaper to craft. Every stairs crafting recipe, vanilla ones and Cohesion's own, now takes just 3 blocks (top left, middle left and middle of the crafting grid) and makes 4 stairs. Stonecutter recipes are unchanged.
+Stairs are cheaper to craft. Every stairs crafting recipe, vanilla ones and Cohesion's own, takes 3 blocks (top left, middle left and middle of the crafting grid) and makes 4 stairs. Stonecutter recipes are unchanged.
 
 ## Requirements
 
 - Minecraft 26.3
 - Fabric Loader 0.19.5 or newer
 - Fabric API 0.162.0+26.3
-- Java 25 (to build the mod)
+- Java 25 (to build or test the mod)
+
+## Try it
+
+1. Install Java 25.
+2. Download the project and open a terminal in its folder.
+3. Run `.\gradlew.bat runClient` on Windows PowerShell, or `./gradlew runClient` on Mac and Linux.
+
+The full steps, a checklist of what to try in the game and fixes for common errors are in [docs/testing.md](docs/testing.md).
+
+## Documentation
+
+- [docs/testing.md](docs/testing.md): install, run and test the mod
+- [docs/adding-blocks.md](docs/adding-blocks.md): add a new block set
+- [docs/publishing.md](docs/publishing.md): checklist for releasing the mod
+- [CHANGELOG.md](CHANGELOG.md): what changed
 
 ## Project layout
 
-- `src/main/java`: mod code, including the block list in `ModBlocks`
-- `src/client/java`: client-only code, including the datagen classes in `datagen/`
-- `src/main/resources/assets/cohesion/textures/`: the block textures, the only files drawn by hand
-- `src/main/generated/`: models, recipes, recipe unlocks, loot tables, tags and names written by datagen. Do not edit these by hand.
-- `src/main/resources/data/minecraft/recipe/`: the vanilla stairs recipes with the 3 block shape
+| Path | What is in it |
+|---|---|
+| `src/main/java` | Mod code, including the block list in `ModBlocks` and the creative tabs in `ModItemGroups` |
+| `src/client/java` | Client-only code, including the datagen classes in `datagen/` |
+| `src/main/resources/assets/cohesion/textures/` | The block textures, the only files drawn by hand |
+| `src/main/generated/` | Models, recipes, recipe unlocks, loot tables, tags and names written by datagen. Do not edit these by hand. |
+| `src/main/resources/data/minecraft/recipe/` | The vanilla stairs recipes with the 3 block shape |
+| `scripts/` | The resource checker |
+| `docs/` | Guides |
 
-## Data generation
+## Checks
 
-Models, recipes, recipe unlocks, loot tables, tags and names are written by Fabric datagen. To add a block:
+Every push on GitHub builds the mod and runs two checks:
 
-1. Register it in `ModBlocks` and add it to its set list.
-2. Describe it in the providers in `src/client/java/io/github/mentil1/cohesion/datagen/`.
-3. Add its texture to `assets/cohesion/textures/block/`.
-4. Run `./gradlew runDatagen` and commit the changes in `src/main/generated`.
-
-GitHub checks that the committed files match what datagen makes, and that everything lines up (see below).
-
-## Building and testing
-
-Run `./gradlew build` (`gradlew.bat build` on Windows) to build the mod. The finished `.jar` ends up in `build/libs/`.
-
-To try it in the game, run `./gradlew runClient`, or use the Minecraft Client run configuration in IntelliJ.
-
-## Resource check
-
-`python3 scripts/check_resources.py` checks that every block has its model, texture, recipe, recipe unlock, loot table and tags, and that nothing points at a missing file. It runs automatically before every build on GitHub.
+- **Resource checker** (`python3 scripts/check_resources.py`): every block has its model, texture, recipe, recipe unlock, loot table, name and tags, every stairs recipe uses the 3 block shape, and nothing points at a missing file.
+- **Datagen check**: the committed files in `src/main/generated` are exactly what `runDatagen` makes.
 
 ## License
 
