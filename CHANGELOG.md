@@ -13,6 +13,9 @@
 ### Changed
 
 - Every stairs crafting recipe, vanilla and Cohesion, now takes 3 blocks (top left, middle left, middle) for 4 stairs
+- Iron and copper chains are crafted 8 at a time instead of 1
+- All trapdoors are crafted 6 at a time instead of 2 (iron and copper gave 1)
+- All doors are crafted 2 at a time instead of 3
 
 ### Development
 
