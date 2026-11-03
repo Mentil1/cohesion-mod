@@ -77,6 +77,9 @@ Make a new world in **Creative** mode with **Allow Commands** turned on.
 - [ ] 4 diorite make 4 Diorite Bricks, and 4 Diorite Bricks make 4 Diorite Tiles.
 - [ ] 3 blocks in a small L (top left, middle left, middle) make 4 stairs. Try a Cohesion block and a vanilla one such as oak planks.
 - [ ] 3 blocks in a row make 6 slabs, and 6 blocks in two rows of 3 make 6 walls.
+- [ ] An iron ingot between two iron nuggets (in a column) makes 8 iron chains.
+- [ ] 6 planks in two rows of 3 make 6 trapdoors, and 4 iron ingots in a 2x2 square make 6 iron trapdoors.
+- [ ] 6 planks in two columns of 3 make 2 doors, and 6 iron ingots in two columns of 3 make 2 iron doors.
 - [ ] 2 Diorite Brick Slabs stacked make Chiseled Diorite.
 - [ ] Diorite Bricks plus a moss block or a vine make Mossy Diorite Bricks.
 - [ ] Smelting Diorite Bricks in a furnace gives Cracked Diorite Bricks.
