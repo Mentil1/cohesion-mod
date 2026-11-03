@@ -249,6 +249,19 @@ def check_recipes(blocks):
     return len(recipes), len(unlocks)
 
 
+def vanilla_rule(name):
+    """How a changed vanilla recipe must look, by its file name."""
+    if name.endswith('_stairs'):
+        return {'count': 4, 'pattern': STAIRS_PATTERN}
+    if name in ('iron_chain', 'copper_chain'):
+        return {'count': 8}
+    if name.endswith('_trapdoor'):
+        return {'count': 6}
+    if name.endswith('_door'):
+        return {'count': 2}
+    return None
+
+
 def check_vanilla_overrides():
     count = 0
     if VANILLA_RECIPES.exists():
@@ -257,9 +270,18 @@ def check_vanilla_overrides():
             if data is None:
                 continue
             count += 1
-            check_stairs_recipe('vanilla override ' + p.stem, data)
-            if not p.stem.endswith('_stairs'):
-                warn('%s: overrides a vanilla recipe that is not a stairs recipe' % rel(p))
+            rule = vanilla_rule(p.stem)
+            if rule is None:
+                warn('%s: overrides a vanilla recipe that Cohesion has no rule for' % rel(p))
+                continue
+            if data.get('type') != 'minecraft:crafting_shaped':
+                err('%s: expected a shaped crafting recipe' % rel(p))
+                continue
+            amount = (data.get('result') or {}).get('count', 1)
+            if amount != rule['count']:
+                err('%s: should make %d (makes %s)' % (rel(p), rule['count'], amount))
+            if 'pattern' in rule and data.get('pattern') != rule['pattern']:
+                err('%s: stairs must use the 3 block shape' % rel(p))
     return count
 
 
