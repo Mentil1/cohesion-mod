@@ -19,7 +19,14 @@ All recipes unlock in the recipe book when you pick up the right item. Every blo
 
 ## Recipe changes
 
-Stairs are cheaper to craft. Every stairs crafting recipe, vanilla ones and Cohesion's own, takes 3 blocks (top left, middle left and middle of the crafting grid) and makes 4 stairs. Stonecutter recipes are unchanged.
+Cohesion changes some vanilla crafting recipes. Each change applies to every recipe of that kind, including the copper variants.
+
+- **Stairs:** 3 blocks (top left, middle left and middle of the crafting grid) make 4 stairs. Before, 6 blocks made 4 stairs. This also applies to Cohesion's own stairs.
+- **Chains:** iron chains and copper chains now come 8 at a time. Before, you got 1.
+- **Trapdoors:** all trapdoors (every wood, iron and copper) now come 6 at a time. Before, wooden trapdoors gave 2 and iron and copper trapdoors gave 1.
+- **Doors:** all doors (every wood, iron and copper) now come 2 at a time. Before, you got 3.
+
+Stonecutter recipes are unchanged.
 
 ## Requirements
 
@@ -51,7 +58,7 @@ The full steps, a checklist of what to try in the game and fixes for common erro
 | `src/client/java` | Client-only code, including the datagen classes in `datagen/` |
 | `src/main/resources/assets/cohesion/textures/` | The block textures, the only files drawn by hand |
 | `src/main/generated/` | Models, recipes, recipe unlocks, loot tables, tags and names written by datagen. Do not edit these by hand. |
-| `src/main/resources/data/minecraft/recipe/` | The vanilla stairs recipes with the 3 block shape |
+| `src/main/resources/data/minecraft/recipe/` | The changed vanilla recipes: stairs, chains, doors and trapdoors |
 | `scripts/` | The resource checker |
 | `docs/` | Guides |
 
@@ -59,7 +66,7 @@ The full steps, a checklist of what to try in the game and fixes for common erro
 
 Every push on GitHub builds the mod and runs two checks:
 
-- **Resource checker** (`python3 scripts/check_resources.py`): every block has its model, texture, recipe, recipe unlock, loot table, name and tags, every stairs recipe uses the 3 block shape, and nothing points at a missing file.
+- **Resource checker** (`python3 scripts/check_resources.py`): every block has its model, texture, recipe, recipe unlock, loot table, name and tags, the changed vanilla recipes (stairs, chains, doors, trapdoors) have the right shape and amounts, and nothing points at a missing file.
 - **Datagen check**: the committed files in `src/main/generated` are exactly what `runDatagen` makes.
 
 ## License
