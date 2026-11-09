@@ -2,6 +2,7 @@ package io.github.mentil1.cohesion.datagen;
 
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
+import net.minecraft.client.data.models.model.TextureMapping;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 
@@ -22,7 +23,7 @@ public class CohesionModelProvider extends FabricModelProvider {
 		family(generator, ModBlocks.MOSSY_DIORITE_BRICKS, ModBlocks.MOSSY_DIORITE_BRICK_STAIRS, ModBlocks.MOSSY_DIORITE_BRICK_SLAB, ModBlocks.MOSSY_DIORITE_BRICK_WALL);
 		family(generator, ModBlocks.DIORITE_TILES, ModBlocks.DIORITE_TILE_STAIRS, ModBlocks.DIORITE_TILE_SLAB, ModBlocks.DIORITE_TILE_WALL);
 		// the wall uses the texture of vanilla polished diorite, so nothing new is drawn
-		generator.familyWithExistingFullBlock(Blocks.POLISHED_DIORITE).wall(ModBlocks.POLISHED_DIORITE_WALL);
+		generator.new BlockFamilyProvider(TextureMapping.cube(Blocks.POLISHED_DIORITE)).wall(ModBlocks.POLISHED_DIORITE_WALL);
 		generator.createTrivialCube(ModBlocks.CRACKED_DIORITE_BRICKS);
 		generator.createTrivialCube(ModBlocks.CHISELED_DIORITE);
 	}
