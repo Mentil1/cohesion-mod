@@ -74,6 +74,16 @@ public class CohesionRecipeProvider extends FabricRecipeProvider {
 				craft(ModBlocks.CHISELED_DIORITE, 1, ModBlocks.DIORITE_BRICK_SLAB, ModBlocks.DIORITE_BRICKS, "#", "#");
 				cut(ModBlocks.DIORITE_BRICKS, ModBlocks.CHISELED_DIORITE, 1);
 				cut(Items.DIORITE, ModBlocks.CHISELED_DIORITE, 1);
+
+				// Polished diorite works in the stonecutter too, like polished deepslate
+				cutAll(Items.POLISHED_DIORITE, ModBlocks.DIORITE_BRICKS, ModBlocks.DIORITE_BRICK_STAIRS, ModBlocks.DIORITE_BRICK_SLAB, ModBlocks.DIORITE_BRICK_WALL);
+				cutAll(Items.POLISHED_DIORITE, ModBlocks.DIORITE_TILES, ModBlocks.DIORITE_TILE_STAIRS, ModBlocks.DIORITE_TILE_SLAB, ModBlocks.DIORITE_TILE_WALL);
+				cut(Items.POLISHED_DIORITE, ModBlocks.CHISELED_DIORITE, 1);
+
+				// Polished Diorite Wall: 6 polished diorite, or the stonecutter from diorite or polished diorite
+				craft(ModBlocks.POLISHED_DIORITE_WALL, 6, Items.POLISHED_DIORITE, Items.POLISHED_DIORITE, "###", "###");
+				cut(Items.DIORITE, ModBlocks.POLISHED_DIORITE_WALL, 1);
+				cut(Items.POLISHED_DIORITE, ModBlocks.POLISHED_DIORITE_WALL, 1);
 			}
 
 			// Stairs take 3 blocks for 4 stairs, slabs 3 for 6, walls 6 for 6. The stonecutter gives 1 stairs, 2 slabs or 1 wall.

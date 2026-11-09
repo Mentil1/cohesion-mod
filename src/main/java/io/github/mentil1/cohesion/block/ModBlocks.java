@@ -131,11 +131,19 @@ public class ModBlocks {
 			BlockBehaviour.Properties.ofFullCopy(DIORITE_TILES).forceSolidOn()
 	);
 
+	// Vanilla has polished diorite stairs and a slab but no wall, unlike the other polished stones.
+	public static final Block POLISHED_DIORITE_WALL = register(
+			"polished_diorite_wall",
+			WallBlock::new,
+			BlockBehaviour.Properties.ofFullCopy(Blocks.POLISHED_DIORITE).forceSolidOn()
+	);
+
 	public static final List<Block> STONE_TILE_SET = List.of(
 			STONE_TILES, STONE_TILE_STAIRS, STONE_TILE_SLAB, STONE_TILE_WALL
 	);
 
 	public static final List<Block> DIORITE_SET = List.of(
+			POLISHED_DIORITE_WALL,
 			DIORITE_BRICKS, CRACKED_DIORITE_BRICKS, MOSSY_DIORITE_BRICKS, CHISELED_DIORITE,
 			DIORITE_BRICK_STAIRS, DIORITE_BRICK_SLAB, DIORITE_BRICK_WALL,
 			MOSSY_DIORITE_BRICK_STAIRS, MOSSY_DIORITE_BRICK_SLAB, MOSSY_DIORITE_BRICK_WALL,
