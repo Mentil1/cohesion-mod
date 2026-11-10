@@ -1,10 +1,11 @@
 # Makes sure the files in src/main/generated are exactly what datagen produces.
+# Put [regenerate] in a commit message on a branch to let GitHub commit the new generated files.
 
 name: datagen
-on:
-  pull_request:
-  push:
-    branches: [main, datagen]
+on: [pull_request, push]
+
+permissions:
+  contents: write
 
 jobs:
   datagen:
@@ -21,6 +22,13 @@ jobs:
         run: chmod +x ./gradlew
       - name: run datagen
         run: ./gradlew runDatagen
+      - name: save the generated files when asked
+        if: github.event_name == 'push' && github.ref != 'refs/heads/main' && contains(github.event.head_commit.message, '[regenerate]')
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A src/main/generated
+          git diff --cached --quiet || (git commit -m "update generated files [skip ci]" && git push)
       - name: check the generated files are up to date
         run: |
           git add -A src/main/generated

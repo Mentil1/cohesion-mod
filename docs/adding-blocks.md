@@ -68,6 +68,8 @@ python3 scripts/check_resources.py
 
 Commit the new files in `src/main/generated`. Do not edit them by hand.
 
+**No Java on your computer?** Push your changes to a branch (not `main`) with `[regenerate]` in the commit message. GitHub runs datagen and commits the generated files for you, with a message ending in `[skip ci]`. Push once more afterwards so the checks run on the final files.
+
 ## 6. Test
 
 Run `.\gradlew.bat runClient` and go through the checklist in [testing.md](testing.md).

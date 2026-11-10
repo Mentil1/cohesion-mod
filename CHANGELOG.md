@@ -7,6 +7,8 @@
 - Stone Tiles, with stairs, slab and wall
 - Diorite Bricks, Mossy Diorite Bricks and Diorite Tiles, each with stairs, slab and wall
 - Cracked Diorite Bricks and Chiseled Diorite
+- Polished Diorite Wall, which vanilla lacks (the other polished stones have one), using the vanilla polished diorite texture
+- Polished diorite works in the stonecutter for diorite bricks, diorite tiles, chiseled diorite and their stairs, slabs and walls
 - Stonecutter recipes for every block and recipe book unlocks for every recipe
 - A Cohesion creative tab, plus placement next to the vanilla stone bricks and diorite in the Building Blocks tab
 
