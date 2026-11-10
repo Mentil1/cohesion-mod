@@ -9,11 +9,12 @@ A Fabric mod for Minecraft that adds new building blocks to improve consistency 
 | Set | Blocks | How you get it |
 |---|---|---|
 | Stone Tiles | tiles, stairs, slab, wall | 4 stone bricks, like deepslate tiles. Stonecutter from stone, stone bricks or stone tiles. |
-| Diorite Bricks | bricks, stairs, slab, wall | 4 diorite, like stone bricks. Stonecutter from diorite or diorite bricks. |
+| Polished Diorite Wall | one block | 6 polished diorite. Vanilla has no polished diorite wall. Stonecutter from diorite or polished diorite. |
+| Diorite Bricks | bricks, stairs, slab, wall | 4 diorite, like stone bricks. Stonecutter from diorite, polished diorite or diorite bricks. |
 | Cracked Diorite Bricks | one block | Smelt diorite bricks in a furnace. |
 | Mossy Diorite Bricks | bricks, stairs, slab, wall | Diorite bricks with a moss block or a vine. Stonecutter from mossy diorite bricks. |
-| Chiseled Diorite | one block | Stack 2 diorite brick slabs. Stonecutter from diorite or diorite bricks. |
-| Diorite Tiles | tiles, stairs, slab, wall | 4 diorite bricks, like deepslate tiles. Stonecutter from diorite, diorite bricks or diorite tiles. |
+| Chiseled Diorite | one block | Stack 2 diorite brick slabs. Stonecutter from diorite, polished diorite or diorite bricks. |
+| Diorite Tiles | tiles, stairs, slab, wall | 4 diorite bricks, like deepslate tiles. Stonecutter from diorite, polished diorite, diorite bricks or diorite tiles. |
 
 All recipes unlock in the recipe book when you pick up the right item. Every block is in the **Cohesion** creative tab and also sits next to its vanilla relatives in the Building Blocks tab: Stone Tiles right after the Mossy Stone Brick Wall, and the diorite blocks right after the Polished Diorite Slab.
 
