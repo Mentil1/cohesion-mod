@@ -60,7 +60,7 @@ Make a new world in **Creative** mode with **Allow Commands** turned on.
 
 **Creative menu**
 
-- [ ] The **Cohesion** tab exists, has a Stone Tiles icon and holds 18 blocks.
+- [ ] The **Cohesion** tab exists, has a Stone Tiles icon and holds 19 blocks.
 - [ ] In the **Building Blocks** tab the Stone Tiles set comes right after the Mossy Stone Brick Wall.
 - [ ] In the **Building Blocks** tab the diorite blocks come right after the Polished Diorite Slab.
 
@@ -75,6 +75,7 @@ Make a new world in **Creative** mode with **Allow Commands** turned on.
 
 - [ ] 4 stone bricks in a 2x2 square make 4 Stone Tiles.
 - [ ] 4 diorite make 4 Diorite Bricks, and 4 Diorite Bricks make 4 Diorite Tiles.
+- [ ] 6 polished diorite in two rows of 3 make 6 Polished Diorite Walls, and they look like polished diorite.
 - [ ] 3 blocks in a small L (top left, middle left, middle) make 4 stairs. Try a Cohesion block and a vanilla one such as oak planks.
 - [ ] 3 blocks in a row make 6 slabs, and 6 blocks in two rows of 3 make 6 walls.
 - [ ] An iron ingot between two iron nuggets (in a column) makes 8 iron chains.
@@ -87,7 +88,7 @@ Make a new world in **Creative** mode with **Allow Commands** turned on.
 **Stonecutter and recipe book**
 
 - [ ] A stonecutter turns stone, stone bricks and stone tiles into the Stone Tiles set.
-- [ ] A stonecutter turns diorite and diorite bricks into the diorite sets.
+- [ ] A stonecutter turns diorite, polished diorite and diorite bricks into the diorite sets, and diorite or polished diorite into the Polished Diorite Wall.
 - [ ] New recipes appear in the recipe book once you hold the right item.
 
 ## 6. If something goes wrong
